@@ -1,0 +1,6 @@
+//Frontend ui
+npm i axios react-router-dom tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+//Backend server
+npm i express cors bcryptjs jsonwebtoken mysql2 dotenv

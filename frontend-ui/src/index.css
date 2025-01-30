@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.lift:hover {
+    transform: translateY(-0.3rem);
+    transition: 0.5s all ease;
+}
