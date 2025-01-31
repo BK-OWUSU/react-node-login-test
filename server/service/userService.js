@@ -1,7 +1,8 @@
 import userRepository from '../repository/userRepository.js'
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-const JWT_SECRET = "9c2e24c5c4cf6c3e06219b13857f18402cc47d101d0bbb5d187cffd8a4d227edda575798be3f26f01cec811bcfe42340bed4efd3afb46ca32e3d207cbd677b2f";
+import dotenv from 'dotenv';
+dotenv.config();
 
 const register = async (req, res)=> {
     const {username, email, password} = req.body;
@@ -28,7 +29,7 @@ const login = async(req, res) => {
         return res.status(401).json({message: 'Invalid password'})
         }
     //Generating token for found user
-    const token = jwt.sign({id: user.id}, JWT_SECRET,{expiresIn: '1h'});
+    const token = jwt.sign({id: user.id}, process.env.JWT_SECRET,{expiresIn: '1h'});
     res.status(200).json({message: 'Logged in successfully', token: token});
 }
 
@@ -39,7 +40,7 @@ const verifyToken = async (req, res, next) => {
     if (!token) {
         return res.status(401).json({message: 'Access denied. No token provided.'});
         }
-        const decoded = jwt.verify(token, JWT_SECRET);
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
         req.userId = decoded.id;
         next();
     } catch (error) {

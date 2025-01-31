@@ -4,10 +4,10 @@ dotenv.config()
 
 
 const connectionPool =  mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: 'root',
-    database: 'react_node'
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME
 })
 
 export default connectionPool;  // export the connection pool

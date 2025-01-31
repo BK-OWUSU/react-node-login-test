@@ -43,7 +43,7 @@ function Login() {
             </div>
             <TextInput id="password" name="password" onChange={handlesChanges} type="password" placeholder="Type password" required shadow />
         </div>
-        <Button type="submit">Register new account</Button>
+        <Button type="submit">Log In</Button>
         <div className="flex gap-2">
             <p>Don&apos;t have an account?</p>
             <Link to="/register">Register</Link>
