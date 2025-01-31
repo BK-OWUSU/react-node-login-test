@@ -1,8 +1,9 @@
 "use client";
-
+import { Button, DarkThemeToggle } from "flowbite-react";
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import Logo  from '../assets/logo.png'
 import Mark  from '../assets/mark.jpg'
+import { Link } from "react-router-dom";
 
 export function CustomNavbar() {
   return (
@@ -11,7 +12,7 @@ export function CustomNavbar() {
         <img src={Logo} className="mr-3 h-6 sm:h-9" alt="Flowbite React Logo" />
         <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Mark</span>
       </Navbar.Brand>
-      <div className="flex md:order-2">
+      <div className="flex items-center gap-2 md:order-2">
         <Dropdown
           arrowIcon={false}
           inline
@@ -30,6 +31,9 @@ export function CustomNavbar() {
           <Dropdown.Item>Sign out</Dropdown.Item>
         </Dropdown>
         <Navbar.Toggle />
+        <Link to="/login"><Button>Login</Button></Link>
+        <Link to="/register"><Button>Register</Button></Link>
+        <DarkThemeToggle />
       </div>
       <Navbar.Collapse>
         <Navbar.Link href="#" active>

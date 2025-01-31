@@ -1,12 +1,12 @@
 
 "use client";
-
+import PropType from "prop-types";
 import { Button, Modal } from "flowbite-react";
 import { useState } from "react";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 import { Sidebar } from "flowbite-react";
 
-export function Alert({message,confirmText, cancelText, onConfirmClicked, btnType}) {
+export function Alert({message, confirmText ="Yes", cancelText= "No", onConfirmClicked, btnType}) {
   const [openModal, setOpenModal] = useState(false);
 
   return (
@@ -36,8 +36,8 @@ export function Alert({message,confirmText, cancelText, onConfirmClicked, btnTyp
   );
 }
 
-// Alert.propType = {
-//     message: String,
-//     confirmText: String,
-//     cancelText: String
-// }
+Alert.propType = {
+    message: PropType.string,
+    confirmText: PropType.string,
+    cancelText: PropType.string   
+}
